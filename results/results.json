@@ -1,0 +1,224 @@
+{
+ "primary_metric": "auc",
+ "direction": "max",
+ "metric_labels": {
+  "auc": "AUC",
+  "auc_ci_low": "AUC, borne basse IC 95 %",
+  "auc_ci_high": "AUC, borne haute IC 95 %",
+  "recall_at_top5pct": "Rappel dans le top 5 % (pondéré)",
+  "n_labels": "Étiquettes d'entraînement",
+  "tokens_per_client": "Tokens par client",
+  "latency_ms_per_client": "Latence par client (ms, médiane)"
+ },
+ "dataset": {
+  "name": "mohameddhameem/home-credit-default-risk",
+  "config": "application_train_dated",
+  "split": "train (découpage temporel)",
+  "n_examples": 192
+ },
+ "approaches": [
+  {
+   "name": "Comptage d'indicateurs",
+   "role": "reference",
+   "metrics": {
+    "auc": 0.5273980034722222,
+    "auc_ci_low": 0.4519262072707542,
+    "auc_ci_high": 0.6064372557533652,
+    "recall_at_top5pct": 0.052083333333333336,
+    "n_labels": 0.0,
+    "tokens_per_client": null,
+    "latency_ms_per_client": 0.00716936000003443
+   },
+   "ci95": {
+    "auc": [
+     0.4519262072707542,
+     0.6064372557533652
+    ],
+    "recall_at_top5pct": [
+     0.010309278350515464,
+     0.13265306122448978
+    ]
+   },
+   "latency_ms": {
+    "p50": 0.01,
+    "p95": 0.01,
+    "n": 1.0
+   },
+   "notes": "Nombre d'indicateurs d'alerte précoce déclenchés (0 à 6), sans apprentissage. ; différence appariée d'AUC vs LLM +0.005 [-0.107 ; +0.121]"
+  },
+  {
+   "name": "XGBoost, 100 étiquettes",
+   "role": "reference",
+   "metrics": {
+    "auc": 0.5428602430555556,
+    "auc_ci_low": 0.4578260869565217,
+    "auc_ci_high": 0.6230059685295714,
+    "recall_at_top5pct": 0.020833333333333332,
+    "n_labels": 100.0,
+    "tokens_per_client": null,
+    "latency_ms_per_client": 0.012258685000006153
+   },
+   "ci95": {
+    "auc": [
+     0.4578260869565217,
+     0.6230059685295714
+    ],
+    "recall_at_top5pct": [
+     0.0,
+     0.13541666666666666
+    ]
+   },
+   "latency_ms": {
+    "p50": 0.01,
+    "p95": 0.01,
+    "n": 1.0
+   },
+   "notes": "XGBoost supervisé, moyenne sur 1 tirage(s). ; différence appariée d'AUC vs LLM +0.021 [-0.093 ; +0.138]"
+  },
+  {
+   "name": "XGBoost, 300 étiquettes",
+   "role": "reference",
+   "metrics": {
+    "auc": 0.5843098958333334,
+    "auc_ci_low": 0.5028757460661964,
+    "auc_ci_high": 0.6689655172413793,
+    "recall_at_top5pct": 0.08333333333333333,
+    "n_labels": 300.0,
+    "tokens_per_client": null,
+    "latency_ms_per_client": 0.012434699999630539
+   },
+   "ci95": {
+    "auc": [
+     0.5028757460661964,
+     0.6689655172413793
+    ],
+    "recall_at_top5pct": [
+     0.0202020202020202,
+     0.2475247524752475
+    ]
+   },
+   "latency_ms": {
+    "p50": 0.01,
+    "p95": 0.01,
+    "n": 1.0
+   },
+   "notes": "XGBoost supervisé, moyenne sur 1 tirage(s). ; différence appariée d'AUC vs LLM +0.062 [-0.066 ; +0.174]"
+  },
+  {
+   "name": "XGBoost, 1000 étiquettes",
+   "role": "reference",
+   "metrics": {
+    "auc": 0.5851779513888888,
+    "auc_ci_low": 0.5065132435953105,
+    "auc_ci_high": 0.6691531373409391,
+    "recall_at_top5pct": 0.09375,
+    "n_labels": 1000.0,
+    "tokens_per_client": null,
+    "latency_ms_per_client": 0.012511114999824713
+   },
+   "ci95": {
+    "auc": [
+     0.5065132435953105,
+     0.6691531373409391
+    ],
+    "recall_at_top5pct": [
+     0.011363636363636364,
+     0.16483516483516478
+    ]
+   },
+   "latency_ms": {
+    "p50": 0.01,
+    "p95": 0.01,
+    "n": 1.0
+   },
+   "notes": "XGBoost supervisé, moyenne sur 1 tirage(s). ; différence appariée d'AUC vs LLM +0.063 [-0.061 ; +0.176]"
+  },
+  {
+   "name": "XGBoost, 20000 étiquettes",
+   "role": "reference",
+   "metrics": {
+    "auc": 0.6667751736111112,
+    "auc_ci_low": 0.5885052447552448,
+    "auc_ci_high": 0.7455236028214867,
+    "recall_at_top5pct": 0.17708333333333331,
+    "n_labels": 20000.0,
+    "tokens_per_client": null,
+    "latency_ms_per_client": 0.012431945000344058
+   },
+   "ci95": {
+    "auc": [
+     0.5885052447552448,
+     0.7455236028214867
+    ],
+    "recall_at_top5pct": [
+     0.0982142857142857,
+     0.29787234042553196
+    ]
+   },
+   "latency_ms": {
+    "p50": 0.01,
+    "p95": 0.01,
+    "n": 1.0
+   },
+   "notes": "XGBoost supervisé, moyenne sur 1 tirage(s). ; différence appariée d'AUC vs LLM +0.145 [+0.025 ; +0.263]"
+  },
+  {
+   "name": "LLM zéro-shot (Qwen2.5-0.5B-Instruct)",
+   "role": "new",
+   "metrics": {
+    "auc": 0.5220269097222222,
+    "auc_ci_low": 0.44123711340206184,
+    "auc_ci_high": 0.6012872259190575,
+    "recall_at_top5pct": 0.052083333333333336,
+    "n_labels": 0.0,
+    "tokens_per_client": 364.28125000000006,
+    "latency_ms_per_client": 2080.9819938593655
+   },
+   "ci95": {
+    "auc": [
+     0.44123711340206184,
+     0.6012872259190575
+    ],
+    "recall_at_top5pct": [
+     0.0,
+     0.11214953271028037
+    ]
+   },
+   "latency_ms": {
+    "p50": 2080.98,
+    "p95": 2114.0,
+    "n": 192.0
+   },
+   "notes": "Méthode : logits du premier token (local) ; sorties illisibles : 0.0 % ; contrôle positif échoué (P risqué 0.96 / sain 0.97) ; exécution : {'model': 'Qwen/Qwen2.5-0.5B-Instruct', 'revision': '7ae557604adf67be50417f59c2c2f167def9a775', 'dtype': 'torch.float32', 'device': 'cpu', 'attention': 'sdpa', 'transformers': '5.24.0', 'torch': '2.15.0+cpu'}"
+  }
+ ],
+ "phase": "public",
+ "scale": "reduced",
+ "seed": 42,
+ "date": "2026-11-24T04:33:21+00:00",
+ "environment": {
+  "python": "3.12.16",
+  "system": "Linux-7.0.0-1020-azure-x86_64-with-glibc2.41",
+  "cpu": 4,
+  "ram_gb": 15.6,
+  "device": "cpu",
+  "gpu": null,
+  "scale": "reduced",
+  "versions": {
+   "torch": "2.15.0+cpu",
+   "transformers": "5.24.0",
+   "datasets": "5.2.0",
+   "sentence-transformers": "6.3.0",
+   "scikit-learn": "1.9.1",
+   "numpy": "2.5.5",
+   "pandas": "3.1.1",
+   "openai": "3.58.0",
+   "xgboost": "3.4.1"
+  }
+ },
+ "service_calls": {
+  "n": 0,
+  "failures": 0,
+  "seconds": 0
+ }
+}
